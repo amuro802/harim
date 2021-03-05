@@ -1,196 +1,150 @@
 @charset "utf-8";
-/*헤더*/
 
-#header{}
+/*header*/
 
-.hTop{
-    background: #282828;
-    font-size: 12px;
-    height: 40px;
-    line-height: 40px;
+
+#header{
+    padding: 30px 50px;    /*패딩으로 주야한다 마진으로 주면 스크롤이 생겨버림*/
+    position: fixed;
+    width: 100%;   /*가로값을 지정해주지 않고 띄우면 공백이 빠지고 왼쪽으로 다붙어 그래서 위드100%를 준다*/
+    box-sizing: border-box;   /*마진은 헤더사이징 안먹어*/
+    z-index: 1;      /*헤더메뉴가 이미지위로 움직이기때문에*/
 }
-.hTop a{
-    color: #fff;
-    display: block;
-    border-left: 1px solid #231f20;
-    padding: 0 30px;
+#header h1{
+    float: left;    /*밑에 유틸아이콘들이 옆으로 오기위해*/
 }
-.engBtn{
-    float: left;
-}
-.engBtn a{border-right: 1px solid #231f20;}
+#header h1 a{}
+#header h1 img{}
 
 .util{
-    float: right;
+    font-size: 12px;
+    float: right;          /*부모 플루트이면 cf필요없어*/
 }
 .util li{
     float: left;
+    margin-left: 20px;       /*아이콘사이의 여백*/
 }
-
-.util li:last-child a{padding-right: 0;} /*a태그한테 패딩을 줬으니까*/
-
-.util li a{}
-.util li img{
-    margin-left: 5px;   /*인라인은 마진 왼쪽 오른쪽은 먹는다/ 마진 위아래는 안먹어요*/
-}
-
-
-.hBottom{
-    height: 80px;
-    line-height: 80px;
-}
-.hBottom h1{
-    float: left;
-}
-.hBottom h1 a{}
-.hBottom h1 img{
-    width: 150px;
+.util li a{
+    background: url(../images/common/csIcon.png) no-repeat center top;  /*아이콘들이 텍스트기준으로 중앙으로*/
+    padding-top: 30px;                       /*a태그를 패딩을 줘 위로 올려버림 마진x*/
+    display: block;                  /*사진과 텍스트가 씹혀서 블락 고고*/
 }
 
 
-.gnb{
-    float: right;
-}
-.gnb>li{
-    float: left;
-    width:100px;
-    text-align:center; 
-    font-family: "NanumMyeingjo",serif;
-    font-weight: 900;
-    margin-left: 50px;   /*트렌스폼과 트레지션으로 인해서 패딩에서 마진으로 변경*/
-    position: relative;
-}
-/*트렌스폼과 트렌지션*/
-.gnb{}
-.gnb>li::after{
-    content: "";
-    display: block;
-    width: 0;
-    height: 3px;
-    background: #333;
-    margin: 0 auto;   /*무조건 마진탑이에 적자*/
-    margin-top: -3px;
-    transition: width 0.5s linear; 
-    
-    
-}
-.gnb li:hover::after{
-    width: 100%;   /*위드값을 위에 0을 적고 100%*/
+.util .lang a{           /*.lang까지만 적으면 li도 먹어 사진이 두개가 되어버려 lang이 li이니까*/
+    background-image: url(../images/common/langIcon.png);
 }
 
-/*서브메뉴*/
-
-.lnb{
-    width: 100%;
-    position: absolute;
-    max-height: 0;
-    overflow: hidden;
-    text-align: center;
-    line-height: 40px;
-    transition: max-heigt 0.5s;
-    z-index: 1;
-    background: #fff;
-    
-}
-.lnb li{}
-.gnb li:hover .lnb{    
-    max-height: 500px;
-
+.util .menu a{
+    background-image: url(../images/common/menuIcon.png);
 }
 
-/*푸터*/
+/*footer*/
 
 #footer{
-    background: #1E1E1E;
-    color: #8c8c8c;
-    position: relative;
+    background: #333;
+    color: #999;
+    font-size: 13px;
+    padding: 30px 0;
 }
 #footer a{
-    color: #8c8c8c;
-}
-.fTop{
-    background: #282828;
-    padding: 50px 0;
+    color: #999;
 }
 
-.topBtn{
-    width: 102px;
-    height: 39px;
-    background: url(../images/common/btn_go_top.png)no-repeat;
-    position: absolute;
-    left: 50%;
-    margin-left: -51px;  /*102ox에 반*/
-    top:-39px; /*헤이트크기만큼*/
-}
-.topBtn a{
-    display: block;
-    height: 100%;
-    padding-top: 12px;
-    padding-left: 30px;
-    box-sizing: border-box /*패딩때메 에이태그가 넘쳐서*/
-
-}
-
-.fMenu{
-    float: left;
-    margin-right: 80px;
-}
-.fMenu dt{
-    font-family: "NanumMyeongjo",serif;
-    font-weight: 900;
-    font-size: 16px;
-    background: url(../images/common/bar_snb.gif)no-repeat left bottom;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-}
-.fMenu dd{
-    line-height: 25px;
-}
-.fMenu dd a{}
-
-.fBottom{
+#footer .inner{
     position: relative;
-    padding: 50px 0;
 }
+.fMenu{
+    
+}
+.fMenu li{
+    float: left;
+    margin-right: 20px;
+}
+#footer .fMenu li:first-child a{color: #fff;}
 
-.fLogo{
-    margin-bottom: 30px;
-}
-.fLogo img{
-    width: 180px;
-}
+.fMenu li a{}
 
 .fInfo{
-    overflow: hidden;
+    padding: 50px 0;
+    line-height: 25px;
 }
-.fInfo li{
-    float: left;
+.fInfo p{}
+
+
+.fInfo span{
+    vertical-align: middle;
 }
-.fInfo li::after{
+.fInfo span::after{
     content: "";
     display: inline-block;
     width: 1px;
-    height: 8px;
-    background: #2d3333;
+    height: 12px;
+    background: #999;
     margin: 0 5px;
+    vertical-align: middle;
 }
-.fInfo li:last-child::after{display: none;}
-.fInfo li a{}
+.fInfo span:last-child::after{display: none;}
+.copy{}
 
-.copy{
-    margin-top: 30px;
-}
-
-.fSns{
+.fBtn{
     position: absolute;
+    top:0;
     right: 0;
-    top:50px;
 }
-.fSns li{
+.fBtnL,.family{   /*왼쪽기준으로 일단 맞춰줍시다*/
     float: left;
-    margin-left: 5px;
+    width: 120px;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 30px;
+    background: #111;
+    text-align: center;
 }
-.fSns li a{}
-.fSns li a img{
-    width: 25px;
+.fBtnL a{}
+.family{
+    width: 200px;
+    background: none;
+    border: 1px solid #999;
+    box-sizing: border-box; 
+    margin-left: 10px;
+}
+.family select{
+    appearance:none;   /*화살표 없애주기*/
+    border: 0;
+    background: none;
+    width: 190px;      /*셀렉트는 인라인블락임*/
+    height: 35px;
+    color: #999;
+    outline: none;     /*검은색 없애기*/
+    text-indent: 20px; /*들여쓰기*/
+    background: url(../images/main/arrowBG.png)no-repeat 95% center;
+    vertical-align: top;
+    font: 13px 'NotoSans'; /*사이즈랑 폰트를 같이 적기/select는 폰트를 가지고 있다*/
+}
+
+/*오른쪽화살표*/
+
+.rightArrow{
+    position: fixed;
+    right: 0;
+    top:50%;              /*창기준으로 중간 밑에랑 같이*/
+    margin-top: -50px;
+    
+}
+.rightArrow>div{
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    line-height: 50px;
+    text-align: center;
+
+}
+.rightArrow>div a{
+    display: block;
+}
+.rightArrow>div img{
+    vertical-align: middle;
 }
