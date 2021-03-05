@@ -1,0 +1,196 @@
+@charset "utf-8";
+/*헤더*/
+
+#header{}
+
+.hTop{
+    background: #282828;
+    font-size: 12px;
+    height: 40px;
+    line-height: 40px;
+}
+.hTop a{
+    color: #fff;
+    display: block;
+    border-left: 1px solid #231f20;
+    padding: 0 30px;
+}
+.engBtn{
+    float: left;
+}
+.engBtn a{border-right: 1px solid #231f20;}
+
+.util{
+    float: right;
+}
+.util li{
+    float: left;
+}
+
+.util li:last-child a{padding-right: 0;} /*a태그한테 패딩을 줬으니까*/
+
+.util li a{}
+.util li img{
+    margin-left: 5px;   /*인라인은 마진 왼쪽 오른쪽은 먹는다/ 마진 위아래는 안먹어요*/
+}
+
+
+.hBottom{
+    height: 80px;
+    line-height: 80px;
+}
+.hBottom h1{
+    float: left;
+}
+.hBottom h1 a{}
+.hBottom h1 img{
+    width: 150px;
+}
+
+
+.gnb{
+    float: right;
+}
+.gnb>li{
+    float: left;
+    width:100px;
+    text-align:center; 
+    font-family: "NanumMyeingjo",serif;
+    font-weight: 900;
+    margin-left: 50px;   /*트렌스폼과 트레지션으로 인해서 패딩에서 마진으로 변경*/
+    position: relative;
+}
+/*트렌스폼과 트렌지션*/
+.gnb{}
+.gnb>li::after{
+    content: "";
+    display: block;
+    width: 0;
+    height: 3px;
+    background: #333;
+    margin: 0 auto;   /*무조건 마진탑이에 적자*/
+    margin-top: -3px;
+    transition: width 0.5s linear; 
+    
+    
+}
+.gnb li:hover::after{
+    width: 100%;   /*위드값을 위에 0을 적고 100%*/
+}
+
+/*서브메뉴*/
+
+.lnb{
+    width: 100%;
+    position: absolute;
+    max-height: 0;
+    overflow: hidden;
+    text-align: center;
+    line-height: 40px;
+    transition: max-heigt 0.5s;
+    z-index: 1;
+    background: #fff;
+    
+}
+.lnb li{}
+.gnb li:hover .lnb{    
+    max-height: 500px;
+
+}
+
+/*푸터*/
+
+#footer{
+    background: #1E1E1E;
+    color: #8c8c8c;
+    position: relative;
+}
+#footer a{
+    color: #8c8c8c;
+}
+.fTop{
+    background: #282828;
+    padding: 50px 0;
+}
+
+.topBtn{
+    width: 102px;
+    height: 39px;
+    background: url(../images/common/btn_go_top.png)no-repeat;
+    position: absolute;
+    left: 50%;
+    margin-left: -51px;  /*102ox에 반*/
+    top:-39px; /*헤이트크기만큼*/
+}
+.topBtn a{
+    display: block;
+    height: 100%;
+    padding-top: 12px;
+    padding-left: 30px;
+    box-sizing: border-box /*패딩때메 에이태그가 넘쳐서*/
+
+}
+
+.fMenu{
+    float: left;
+    margin-right: 80px;
+}
+.fMenu dt{
+    font-family: "NanumMyeongjo",serif;
+    font-weight: 900;
+    font-size: 16px;
+    background: url(../images/common/bar_snb.gif)no-repeat left bottom;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+.fMenu dd{
+    line-height: 25px;
+}
+.fMenu dd a{}
+
+.fBottom{
+    position: relative;
+    padding: 50px 0;
+}
+
+.fLogo{
+    margin-bottom: 30px;
+}
+.fLogo img{
+    width: 180px;
+}
+
+.fInfo{
+    overflow: hidden;
+}
+.fInfo li{
+    float: left;
+}
+.fInfo li::after{
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 8px;
+    background: #2d3333;
+    margin: 0 5px;
+}
+.fInfo li:last-child::after{display: none;}
+.fInfo li a{}
+
+.copy{
+    margin-top: 30px;
+}
+
+.fSns{
+    position: absolute;
+    right: 0;
+    top:50px;
+}
+.fSns li{
+    float: left;
+    margin-left: 5px;
+}
+.fSns li a{}
+.fSns li a img{
+    width: 25px;
+}
